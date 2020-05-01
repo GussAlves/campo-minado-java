@@ -3,6 +3,8 @@ package br.com.gussalves.cm.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.gussalves.cm.excecao.ExplosaoException;
+
 public class Campo {
 
 	private final int linha;
@@ -20,6 +22,7 @@ public class Campo {
 		this.coluna = coluna;
 	}
 	
+	// determina os 'vizinhos' do campo
 	boolean adicionarVizinho(Campo vizinho) {
 		boolean linhaDiferente = linha != vizinho.linha;
 		boolean colunaDiferente = coluna != vizinho.coluna;
@@ -38,5 +41,33 @@ public class Campo {
 		} else {
 			return false;
 		}
+	}
+	
+	void alternarMarcacao() {
+		if(!aberto) {
+			marcado = !marcado;
+		}
+	}
+	
+	boolean abrir() {
+		if(!aberto && !marcado) {
+			aberto = true;
+			
+			if(minado) {
+				throw new ExplosaoException();
+			}
+			
+			if(vizinhancaSegura()) {
+				vizinhos.forEach(v -> v.abrir());
+			}
+			
+			return true;
+		} else {
+			return false;			
+		}
+	}
+	
+	boolean vizinhancaSegura() {
+		return vizinhos.stream().noneMatch(v -> v.minado);
 	}
 }
