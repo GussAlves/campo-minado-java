@@ -43,6 +43,7 @@ public class Campo {
 		}
 	}
 	
+	// Passa o campo de altera o valor do campo true/false
 	void alternarMarcacao() {
 		if(!aberto) {
 			marcado = !marcado;
@@ -59,15 +60,31 @@ public class Campo {
 			
 			if(vizinhancaSegura()) {
 				vizinhos.forEach(v -> v.abrir());
-			}
-			
+			}		
 			return true;
 		} else {
 			return false;			
 		}
 	}
 	
+	// Verifica se as casas ao redor do campo delecionado está minado 
 	boolean vizinhancaSegura() {
 		return vizinhos.stream().noneMatch(v -> v.minado);
+	}
+	
+	void minar() {
+			minado = true;			
+	}
+	
+	public boolean isMarcado() {
+		return marcado;
+	}
+	
+	public boolean isAberto() {
+		return aberto;
+	}
+	
+	public boolean isfechado() {
+		return !isAberto();
 	}
 }
