@@ -1,8 +1,7 @@
 package br.com.gussalves.cm.modelo;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -132,4 +131,27 @@ public class CampoTeste {
 		
 		assertTrue(campo22.isAberto() && campo11.isfechado());
 	}
+	
+	@Test
+	void testObjetivoAlcancadoMinadoMarcado() {
+		campo.minar();
+		campo.alternarMarcacao();
+		assertTrue(campo.objetivoalcancado());
+	}
+	
+	@Test
+	void testObjetivoAlcancadoNaoMinadoMarcado() {
+		campo.abrir();
+		assertTrue(campo.objetivoalcancado());
+	}
+	
+	@Test
+	void testRestart() {
+		campo.abrir();
+		campo.alternarMarcacao();
+		campo.minar();
+		campo.reiniciar();
+		assertFalse(campo.isAberto() && campo.isMinado() && campo.isMarcado());
+	}
+	
 }

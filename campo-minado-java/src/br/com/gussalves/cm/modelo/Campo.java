@@ -17,7 +17,7 @@ public class Campo {
 	
 	private List<Campo> vizinhos = new ArrayList<>();
 	
-	Campo(int linha, int coluna) {
+	Campo(int linha, int coluna) { // Construtor
 		this.linha = linha;
 		this.coluna = coluna;
 	}
@@ -50,7 +50,7 @@ public class Campo {
 		}
 	}
 	
-	boolean abrir() {
+	boolean abrir() { // Reaiza a abertura do campo 
 		if(!aberto && !marcado) {
 			aberto = true;
 			
@@ -67,12 +67,11 @@ public class Campo {
 		}
 	}
 	
-	// Verifica se as casas ao redor do campo delecionado está minado 
-	boolean vizinhancaSegura() {
+	boolean vizinhancaSegura() { // Verifica se a vizinhança do campo é segura 
 		return vizinhos.stream().noneMatch(v -> v.minado);
 	}
 	
-	void minar() {
+	void minar() { // Metodo para minar um campo
 			minado = true;			
 	}
 	
@@ -86,5 +85,47 @@ public class Campo {
 	
 	public boolean isfechado() {
 		return !isAberto();
+	}
+
+	public boolean isMinado() {
+		return minado;
+	}
+	
+	public int getLinha() {
+		return linha;
+	}
+
+	public int getColuna() {
+		return coluna;
+	}
+	
+	boolean objetivoalcancado() { // 
+		boolean desvendado = !minado && aberto;
+		boolean protegido = minado && marcado;
+		return desvendado || protegido;
+	}
+	
+	long minasNaVizinhanca() { // Verifica a quantiade de minas que tem na vizinhanca
+		return vizinhos.stream().filter(v -> v.minado).count();
+	}
+	
+	void reiniciar() { // Reinicia o game
+		aberto = false;
+		minado = false;
+		marcado = false;
+	}
+	
+	public String toString() {
+		if(marcado) {
+			return "x";
+		} else if(aberto && minado) {
+			return "*";
+		} else if(aberto && minasNaVizinhanca() > 0) {
+			return Long.toString(minasNaVizinhanca());
+		} else if(aberto) {
+			return " ";
+		} else {
+			return "?";
+		}
 	}
 }
