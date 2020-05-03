@@ -60,9 +60,10 @@ public class TabuleiroTerminal {
 					tabuleiro.alterarMarcacao(xy.next(), xy.next());
 				}
 			}
-			
+			System.out.println(tabuleiro);
 			System.out.println("Você ganhou!!!");
 		} catch (ExplosaoException e) {
+			System.out.println(tabuleiro);
 			System.out.println("Você Perdeu!");
 		}
 	}
