@@ -7,7 +7,7 @@ public class Aplicacao {
 
 	public static void main(String[] args) {
 		
-		// Possível descidir o tamanho do tabuleiro (linha, coluna, bombas)
+		// Possivel descidir o tamanho do tabuleiro (linha, coluna, bombas)
 		Tabuleiro tabuleiro = new Tabuleiro(6, 6, 3);
 		new TabuleiroTerminal(tabuleiro);
 	}
