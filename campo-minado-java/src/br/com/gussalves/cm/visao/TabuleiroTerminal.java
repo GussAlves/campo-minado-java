@@ -17,7 +17,7 @@ public class TabuleiroTerminal {
 		this.tabuleiro = tabuleiro;
 		
 		executarJogo();
-	}
+	}//
 
 	private void executarJogo() {
 		try {
