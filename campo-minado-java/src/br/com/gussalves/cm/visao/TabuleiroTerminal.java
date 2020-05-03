@@ -36,6 +36,7 @@ public class TabuleiroTerminal {
 			}
 		} catch (SairException e) {
 			System.out.println("Tchau!!");
+			System.out.println("Obrigado por ter jogado!! "); // Obrigado 
 		} finally {
 			sc.close();
 		}
@@ -62,9 +63,11 @@ public class TabuleiroTerminal {
 			}
 			System.out.println(tabuleiro);
 			System.out.println("Você ganhou!!!");
+			System.out.println("Obrigado por ter jogado!!"); // Obrigado 
 		} catch (ExplosaoException e) {
 			System.out.println(tabuleiro);
 			System.out.println("Você Perdeu!");
+			System.out.println("Obrigado por ter jogado!!"); // Obrigado 
 		}
 	}
 	
