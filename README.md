@@ -1,6 +1,6 @@
 # campo-minado-java
 <blockquote>Motivado pela sua dificuldade e aprimorar o conhecimento teórico e pratico obtido em aula colocado em pratica
-Versão: <h4>v1.0</h4></blockquote>
+<h4>Versão: v1.0</h4></blockquote>
 
 <blockquote>
 <h2>Objetivo</h2>
