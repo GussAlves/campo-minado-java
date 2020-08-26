@@ -1,6 +1,8 @@
 # campo-minado-java
-<blockquote>Motivado pela dificuldade do trabalho APS e toda a sua dificuldade e aprimorar o conhecimento teórico e pratico obtido em aula colocado em pratica</blockquote>
+<blockquote>Motivado pela sua dificuldade e aprimorar o conhecimento teórico e pratico obtido em aula colocado em pratica</blockquote>
 <blockquote>Versão: <h4>v1.0</h4></blockquote>
+
+<blockquote>
 <h2>Objetivo</h2>
 <ul>
   <li>Encontrar os quadrados vazios e evitar as minas. Quanto mais rápido você esvaziar o tabuleiro, melhor será a sua pontuação.</li>
@@ -9,6 +11,7 @@
 <ul>
   <li>O Campo Minado é um teste de memória e raciocínio aparentemente simples. É um dos jogos bem populares.</li>
 </ul>
+</blockquote>
  
 <b>As regras do Campo Minado são simples:</b>
 <ol>
